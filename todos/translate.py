@@ -26,6 +26,8 @@ def translate(event, context):
     
     xresult = trans.translate_text(Text=xpython["text"], SourceLanguageCode="en", TargetLanguageCode="de")
 
+    print (xresult)
+    
     # create a response
     response = {
         "statusCode": 200,
