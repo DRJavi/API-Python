@@ -22,7 +22,7 @@ def translate(event, context):
                            
     xpython = json.loads(xjson)
     
-    textTrad = trans.translate_text(Text=xpython["text"], SourceLanguageCode="en", TargetLanguageCode='id')
+    textTrad = trans.translate_text(Text=xpython["text"], SourceLanguageCode="en", TargetLanguageCode=event['pathParameters']['le'])
     outputText = textTrad.get('TranslatedText')
     
     xpython["text"] = outputText
