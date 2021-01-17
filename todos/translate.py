@@ -22,17 +22,16 @@ def translate(event, context):
                            
     xpython = json.loads(xjson)
     
-    xjsonResult = xpython.dumps(xpython)
+    textTrad = trans.translate_text(Text=xpython["text"], SourceLanguageCode="en", TargetLanguageCode="es")
+    outputText = textTrad.get('TranslatedText')
     
-    xresult = trans.translate_text(Text=xpython["text"], SourceLanguageCode="en", TargetLanguageCode="de")
+    xpython["text"] = outputText
 
-    print (xresult)
     
     # create a response
     response = {
         "statusCode": 200,
-        "body": json.dumps(xjsonResult,
-                           cls=decimalencoder.DecimalEncoder)
+        "body": json.dumps(xpython)
     }
 
     return response
