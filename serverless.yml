@@ -50,7 +50,7 @@ functions:
     events:
       - http:
           path: todos/{id}/{le}
-          method: translate
+          method: get
           cors: true
 
   update:
