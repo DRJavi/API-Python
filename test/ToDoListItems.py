@@ -2,7 +2,7 @@ import boto3
 from botocore.exceptions import ClientError
 
 
-def list_todo(id, dynamodb=None):
+def list_todo(dynamodb=None):
     if not dynamodb:
         dynamodb = boto3.resource(
             'dynamodb', endpoint_url="http://localhost:8000")
@@ -20,7 +20,7 @@ def list_todo(id, dynamodb=None):
 
 
 def main():
-    todo = get_todo("123e4567-e89b-12d3-a456-426614174000")
+    todo = list_todo("")
     if todo:
         return todo
 
